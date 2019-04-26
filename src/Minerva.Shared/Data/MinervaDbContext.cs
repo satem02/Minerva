@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Minerva.Shared.Data.Entities;
 
@@ -11,5 +12,7 @@ namespace Minerva.Shared.Data
         {
 
         }
+
+        public DbSet<HistoryEntity> Histories { get; set; }
     }
 }
