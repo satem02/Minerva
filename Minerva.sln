@@ -1,24 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C8D2F3B1-FD60-4552-9A00-40358B7C147C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1B65B791-D21D-4DB3-BD02-62968B6BCA76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.API", "src\Minerva.API\Minerva.API.csproj", "{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minerva.API", "src\Minerva.API\Minerva.API.csproj", "{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.Shared", "src\Minerva.Shared\Minerva.Shared.csproj", "{B501E1E8-9468-4858-8842-D4D6114993E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minerva.Shared", "src\Minerva.Shared\Minerva.Shared.csproj", "{B501E1E8-9468-4858-8842-D4D6114993E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.Tests", "tests\Minerva.Tests\Minerva.Tests.csproj", "{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minerva.Tests", "tests\Minerva.Tests\Minerva.Tests.csproj", "{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.Job", "src\Minerva.Job\Minerva.Job.csproj", "{F3093111-56CC-4946-8BB5-B7110B8DA0E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
-		{B501E1E8-9468-4858-8842-D4D6114993E3} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
-		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC} = {1B65B791-D21D-4DB3-BD02-62968B6BCA76}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,5 +33,21 @@ Global
 		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3093111-56CC-4946-8BB5-B7110B8DA0E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3093111-56CC-4946-8BB5-B7110B8DA0E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3093111-56CC-4946-8BB5-B7110B8DA0E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3093111-56CC-4946-8BB5-B7110B8DA0E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
+		{B501E1E8-9468-4858-8842-D4D6114993E3} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
+		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC} = {1B65B791-D21D-4DB3-BD02-62968B6BCA76}
+		{F3093111-56CC-4946-8BB5-B7110B8DA0E7} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D866B13-D1A6-427F-A5B9-7E52AFA623AC}
 	EndGlobalSection
 EndGlobal
