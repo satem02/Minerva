@@ -1,6 +1,6 @@
 namespace Minerva.Shared.Data.Entities
 {
-    public class HistoryEntity : EntityBase
+    public class PostEntity : EntityBase
     {
         public string Url { get; set; }
     }

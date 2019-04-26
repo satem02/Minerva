@@ -3,10 +3,10 @@ using Minerva.Shared.Data.Entities;
 
 namespace Minerva.Shared.Repositories
 {
-    public interface IHistoryRepository
+    public interface IPostRepository
     {
-        Task<HistoryEntity> GetHistoryByUrlAsync(string url);
+        Task<PostEntity> GetPostByUrlAsync(string url);
         Task<bool> IsExistsByUrlAsync(string url);
-        Task<bool> AddAsync(HistoryEntity entity);
+        Task<bool> AddAsync(PostEntity entity);
     }
 }

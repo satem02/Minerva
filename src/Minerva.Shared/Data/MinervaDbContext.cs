@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Minerva.Shared.Data.Entities;
+using Minerva.Shared.Services;
 
 namespace Minerva.Shared.Data
 {
@@ -13,6 +14,7 @@ namespace Minerva.Shared.Data
 
         }
 
-        public DbSet<HistoryEntity> Histories { get; set; }
+        public DbSet<BookmarkEntity> Bookmarks { get; set; }
+        public DbSet<PostEntity> Posts { get; set; }
     }
 }
