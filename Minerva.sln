@@ -4,9 +4,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C8D2F3B1-FD6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1B65B791-D21D-4DB3-BD02-62968B6BCA76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.API", "src\Minerva.API\Minerva.API.csproj", "{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.Shared", "src\Minerva.Shared\Minerva.Shared.csproj", "{B501E1E8-9468-4858-8842-D4D6114993E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minerva.Tests", "tests\Minerva.Tests\Minerva.Tests.csproj", "{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
+		{B501E1E8-9468-4858-8842-D4D6114993E3} = {C8D2F3B1-FD60-4552-9A00-40358B7C147C}
+		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC} = {1B65B791-D21D-4DB3-BD02-62968B6BCA76}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55A1C54-5020-4859-BF1F-ED809F9B2FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B501E1E8-9468-4858-8842-D4D6114993E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B501E1E8-9468-4858-8842-D4D6114993E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B501E1E8-9468-4858-8842-D4D6114993E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B501E1E8-9468-4858-8842-D4D6114993E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD9F688-A16F-4757-B1CB-067B7B4DD2BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
