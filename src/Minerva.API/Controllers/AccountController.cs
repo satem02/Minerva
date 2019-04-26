@@ -9,6 +9,7 @@ using Minerva.Shared.Services;
 
 namespace Minerva.API.Controllers
 {
+    [Route("v1/account")]
     public class AccountController : ApiControllerBase
     {
         private readonly IAccountService _accountService;
