@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Minerva.Job.Extensions;
 using Minerva.Shared.Data;
 using Minerva.Shared.Extensions;
 
@@ -27,6 +28,7 @@ namespace Minerva.Job
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCap()
+                .AddConsumers()
                 .AddRepositoryLayer()
                 .AddServiceLayer()
                 .AddCustomIdentity();
