@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Minerva.Shared.Data;
 using Minerva.Shared.Data.Entities;
+using Minerva.Shared.Mappers;
+using Minerva.Shared.Providers;
 using Minerva.Shared.Repositories;
 using Minerva.Shared.Repositories.Implementations;
 using Minerva.Shared.Services;
@@ -17,9 +19,17 @@ namespace Minerva.Shared.Extensions
 {
     public static class DependencyInjectionExtensions
     {
+        public static IServiceCollection AddMapperLayer(this IServiceCollection services)
+        {
+            services.AddTransient<IUserMapper, UserMapper>();
+            services.AddTransient<IBookmarkMapper, BookmarkMapper>();
+            return services;
+        }
+
         public static IServiceCollection AddRepositoryLayer(this IServiceCollection services)
         {
             services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IBookmarkRepository, BookmarkRepository>();
             return services;
         }
 
@@ -27,6 +37,13 @@ namespace Minerva.Shared.Extensions
         {
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IBookmarkService, BookmarkService>();
+            return services;
+        }
+
+        public static IServiceCollection AddProviderLayer(this IServiceCollection services)
+        {
+            services.AddScoped<IUserProvider, UserProvider>();
             return services;
         }
 
@@ -34,20 +51,24 @@ namespace Minerva.Shared.Extensions
         {
             var configuration = services.BuildServiceProvider().GetRequiredService<IConfiguration>();
             services.AddDbContext<MinervaDbContext>(options =>
-                options.UseNpgsql(
-                    configuration.GetConnectionString("DbConnection")));
+                {
+                    options.UseNpgsql(
+                        configuration.GetConnectionString("DbConnection"), x => x.MigrationsAssembly("Minerva.API"));
+                });
 
-            services.AddIdentityCore<UserEntity>()
-                .AddEntityFrameworkStores<MinervaDbContext>();
+            services.AddIdentity<UserEntity, IdentityRole>()
+                .AddSignInManager()
+                .AddEntityFrameworkStores<MinervaDbContext>()
+                .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
-                options.Password.RequiredLength = 6;
+                options.Password.RequiredLength = 8;
                 options.Password.RequiredUniqueChars = 1;
 
                 // Lockout settings.
@@ -88,6 +109,5 @@ namespace Minerva.Shared.Extensions
 
             return services;
         }
-
     }
 }

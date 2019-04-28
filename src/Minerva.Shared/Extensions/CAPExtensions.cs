@@ -13,7 +13,8 @@ namespace Minerva.Shared.Extensions
             {
                 options.UseEntityFramework<MinervaDbContext>();
                 options.UsePostgreSql(configuration.GetConnectionString("DbConnection"));
-                options.UseRabbitMQ(configuration.GetConnectionString("RabbitMqConnection"));
+                options.UseRabbitMQ(configuration["RabbitMQ:HostName"]);
+                options.UseDashboard();
             });
             return services;
         }
