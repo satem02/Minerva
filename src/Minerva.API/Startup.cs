@@ -19,9 +19,11 @@ namespace Minerva.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCap()
+                .AddMapperLayer()
                 .AddRepositoryLayer()
                 .AddServiceLayer()
-                .AddCustomIdentity();
+                .AddCustomIdentity()
+                .AddProviderLayer();
 
             services.AddMvc();
         }
