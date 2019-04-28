@@ -2,7 +2,10 @@
 using System.Threading.Tasks;
 using DotNetCore.CAP;
 using Minerva.Shared.Common;
+using Minerva.Shared.Contract.Request.Account;
+using Minerva.Shared.Contract.Request.Bookmark;
 using Minerva.Shared.Contract.Response.Post;
+using Minerva.Shared.Providers;
 using Minerva.Shared.Services;
 
 namespace Minerva.Job.Consumers
@@ -16,37 +19,37 @@ namespace Minerva.Job.Consumers
     {
         private readonly IEmailProvider _emailProvider;
         private readonly IPostService _postService;
-        public EmailConsumer(IEmailProvider emailProvider, IPostService postService)
+        private readonly IAccountService _accountService;
+        public EmailConsumer(IEmailProvider emailProvider, IPostService postService, IAccountService accountService)
         {
             _emailProvider = emailProvider;
             _postService = postService;
+            _accountService = accountService;
         }
 
         [CapSubscribe(Constants.EmailQueue)]
         public async Task SendEmail(SendEmailRequest request)
         {
-            var response = await _postService.GetPostAsync(new GetPostRequest()
+            var postResponse = await _postService.GetPostAsync(new GetPostRequest()
             {
                 Id = request.PostId
             });
 
-            if (!response.IsSuccess)
+            if (!postResponse.IsSuccess)
             {
                 throw new Exception("Post is not found");
             }
 
-            await _emailProvider.SendAsync(request.EmailAddress, "Kindle E-Book");
+            var userResponse = await _accountService.GetUserAsync(new GetUserRequest()
+            {
+                UserId = request.UserId
+            });
+
+            if (userResponse.IsSuccess)
+            {
+                await _emailProvider.SendAsync(userResponse.User.EmailAddress, "Kindle E-Book", null,
+                    postResponse.Post.BlobUrl);
+            }
         }
-    }
-
-    public interface IEmailProvider
-    {
-        Task SendAsync(string emailAddress, string subject);
-    }
-
-    public class SendEmailRequest
-    {
-        public int PostId { get; set; }
-        public string EmailAddress { get; set; }
     }
 }

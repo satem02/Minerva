@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.AzureStorage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Minerva.Job.Extensions;
-using Minerva.Shared.Data;
 using Minerva.Shared.Extensions;
 
 namespace Minerva.Job
@@ -28,6 +22,11 @@ namespace Minerva.Job
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCap()
+                .AddAzureStorage(new AzureStorageOptions()
+                {
+                    AccountKey = Configuration["AzureStorage:AccountKey"],
+                    AccountName = Configuration["AzureStorage:AccountName"]
+                })
                 .AddConsumers()
                 .AddRepositoryLayer()
                 .AddServiceLayer()
