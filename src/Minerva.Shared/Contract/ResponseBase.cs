@@ -1,4 +1,5 @@
 using System.Net;
+using Minerva.Shared.Contract.Models;
 
 namespace Minerva.Shared.Contract
 {

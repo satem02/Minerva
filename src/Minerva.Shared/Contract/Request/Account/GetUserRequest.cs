@@ -1,6 +1,6 @@
 namespace Minerva.Shared.Contract.Request.Account
 {
-    public class GetProfileRequest
+    public class GetUserRequest
     {
         public string UserId { get; set; }
     }

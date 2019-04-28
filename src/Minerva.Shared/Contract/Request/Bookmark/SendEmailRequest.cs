@@ -1,6 +1,6 @@
-﻿namespace Minerva.Shared.Contract.Models
+﻿namespace Minerva.Shared.Contract.Request.Bookmark
 {
-    public class BookmarkModel
+    public class SendEmailRequest
     {
         public int PostId { get; set; }
         public string UserId { get; set; }
