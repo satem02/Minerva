@@ -61,6 +61,11 @@ namespace Minerva.Shared.Services.Implementations
             throw new System.NotImplementedException();
         }
 
+        public Task<GetUserResponse> GetUserAsync(GetUserRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<ChangePasswordResponse> ChangePasswordAsync(ChangePasswordRequest request)
         {
             throw new System.NotImplementedException();
@@ -88,7 +93,7 @@ namespace Minerva.Shared.Services.Implementations
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

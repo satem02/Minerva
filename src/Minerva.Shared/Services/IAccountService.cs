@@ -16,5 +16,6 @@ namespace Minerva.Shared.Services
         Task<UpdateAccountResponse> UpdateAccountAsync(UpdateAccountRequest request);
         Task<GetProfileResponse> GetProfileAsync(GetProfileRequest request);
         Task<ResetPasswordResponse> ResetPasswordAsync(ResetPasswordRequest request);
+        Task<GetUserResponse> GetUserAsync(GetUserRequest request);
     }
 }

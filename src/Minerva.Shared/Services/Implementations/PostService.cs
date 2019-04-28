@@ -36,9 +36,9 @@ namespace Minerva.Shared.Services.Implementations
             return response;
         }
 
-        public async Task<ResponseBase> AddPostAsync(AddPostRequest request)
+        public async Task<AddPostResponse> AddPostAsync(AddPostRequest request)
         {
-            var response = new ResponseBase();
+            var response = new AddPostResponse();
 
             bool isExists = await _postRepository.IsExistsByUrlAsync(request.Url);
             if (isExists)
@@ -56,6 +56,7 @@ namespace Minerva.Shared.Services.Implementations
                 return response;
             }
 
+            response.Post = _postMapper.ToModel(entity);
             response.StatusCode = (int) HttpStatusCode.Created;
             return response;
         }
