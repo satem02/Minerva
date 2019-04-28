@@ -8,7 +8,7 @@ using Minerva.Shared.Services;
 namespace Minerva.API.Controllers
 {
     [Authorize]
-    [Route("v1/books")]
+    [Route("v1/bookmarks")]
     public class BookmarksController : ApiControllerBase
     {
         private readonly IBookmarkService _bookmarkService;
