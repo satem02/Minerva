@@ -84,5 +84,11 @@ namespace Minerva.Shared.Providers
 
             return await _userManager.GeneratePasswordResetTokenAsync(user);
         }
+
+        public string GetUserId()
+        {
+            var userClaims = _httpContextAccessor.HttpContext.User;
+            return _userManager.GetUserId(userClaims);
+        }
     }
 }

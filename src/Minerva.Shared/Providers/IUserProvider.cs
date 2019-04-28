@@ -9,5 +9,6 @@ namespace Minerva.Shared.Providers
         string GenerateToken(UserEntity userEntity);
         Task<bool> CreateAsync(UserEntity userEntity, string password);
         Task<string> GetForgotPasswordTokenAsync();
+        string GetUserId();
     }
 }
