@@ -2,6 +2,6 @@
 {
     public class CreateBookmarkRequest
     {
-        
+        public string Url { get; set; }
     }
 }

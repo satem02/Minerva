@@ -34,7 +34,7 @@ namespace Minerva.Shared.Services.Implementations
                 await _capPublisher.PublishAsync(Constants.BookmarkQueue, request);
                 response.StatusCode = (int) HttpStatusCode.Accepted;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 response.StatusCode = (int) HttpStatusCode.InternalServerError;
             }
